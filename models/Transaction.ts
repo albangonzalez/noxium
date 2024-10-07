@@ -27,7 +27,7 @@ const schema = new mongoose.Schema({
       percent: Number,
     },
   ],
-});
+}, { timestamps: true });
 
 schema.set("toJSON", {
   virtuals: true,
