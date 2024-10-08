@@ -3,7 +3,7 @@
 import dbConnect from "@/lib/dbConnect";
 import Transaction from "@/models/Transaction";
 
-export default async function createTransaction(formData: FormData) {
+export default async function createTransaction(prevState: any, formData: FormData) {
   dbConnect();
 
   try {
@@ -15,6 +15,8 @@ export default async function createTransaction(formData: FormData) {
     });
 
     await transaction.save();
+
+    return { success: true };
   } catch (e) {
     throw e;
   }
