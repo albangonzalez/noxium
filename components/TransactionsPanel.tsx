@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import DayTransactionCard from "@/components/DayTransactionsCard";
 import { IntlMessageFormat } from "intl-messageformat";
+import { Button } from "@nextui-org/button";
+import { Link } from "@nextui-org/link";
 
 export default function TransactionsPanel() {
   const [transactions, setTransactions] = useState([]);
@@ -16,6 +18,7 @@ export default function TransactionsPanel() {
 
   return (
     <div className="max-w-sm mx-auto p-3 md:p-0">
+      <Button color="default" as={Link} className="w-full mb-3" href="/transactions/new">Add transaction</Button>
       <div className="flex flex-col gap-6">
         {(0 < transactions.length) && transactions.map((dayTransactions: any, i: number) => (
           <DayTransactions key={i} transactions={dayTransactions} />
