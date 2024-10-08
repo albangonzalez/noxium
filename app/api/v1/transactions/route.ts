@@ -37,7 +37,10 @@ export async function GET() {
     }
 
     return Response.json({ success: true, data: transactions });
-  } catch (e) {
+  } catch (e: unknown) {
+    if (e instanceof Error) {
+      return Response.json({ success: false, message: e.message }, { status: 500 });
+    }
     return Response.json({ success: false }, { status: 500 });
   }
 }

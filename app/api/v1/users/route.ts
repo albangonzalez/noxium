@@ -14,7 +14,10 @@ export async function GET() {
     const r = users.map((user) => user.toJSON());
 
     return Response.json({ success: true, data: r });
-  } catch (e) {
+  } catch (e: unknown) {
+    if (e instanceof Error) {
+      return Response.json({ success: false, message: e.message }, { status: 500 });
+    }
     return Response.json({ success: false }, { status: 500 });
   }
 }
