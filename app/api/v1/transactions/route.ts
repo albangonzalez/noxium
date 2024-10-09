@@ -1,6 +1,8 @@
 import dbConnect from "@/lib/dbConnect";
 import Transaction from "@/models/Transaction";
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   await dbConnect();
 
