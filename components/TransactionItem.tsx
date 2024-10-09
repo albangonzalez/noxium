@@ -1,6 +1,7 @@
-import { Transaction } from "@/models/Transaction";
+import { ITransactionItem } from "@/components/TransactionsPanel";
 
-export default function TransactionItem({ transaction }: any) {
+
+export default function TransactionItem({ transaction }: { transaction: ITransactionItem }) {
   const date = new Date(transaction.date);
   return (
     <div className="flex gap-2">
