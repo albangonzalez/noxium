@@ -4,7 +4,7 @@ import dbConnect from "@/lib/dbConnect";
 import Transaction from "@/models/Transaction";
 
 export default async function createTransaction(prevState: any, formData: FormData) {
-  dbConnect();
+  await dbConnect();
 
   try {
     const transaction = new Transaction({
